@@ -1,8 +1,7 @@
 <script setup lang="ts">
-  import {defineProps} from 'vue';
   import {RouterLink} from 'vue-router';
 
-  const props = defineProps<{
+  defineProps<{
     link: string,
   }>();
 </script>
@@ -26,6 +25,7 @@
       text-transform: uppercase;
       font-size: 1.6rem;
       width: 150px;
+      line-height: 1.1;
     }
   }
 </style>

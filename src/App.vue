@@ -7,5 +7,6 @@
   <Header />
   <RouterView />
 </template>
+
 <style scoped>
 </style>

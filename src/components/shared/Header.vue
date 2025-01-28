@@ -17,6 +17,7 @@
     inset: 0;
     background-color: transparent;
     width: 100%;
+    height: 90px;
     padding: 24px 0;
   }
 </style>
