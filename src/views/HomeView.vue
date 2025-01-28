@@ -2,6 +2,7 @@
   import Banner from "../components/shared/Banner.vue";
   import Lecture from "../components/shared/Lecture.vue";
   import Ticker from "../components/ui/Ticker.vue";
+  import Session from "../components/shared/Session.vue";
 </script>
 
 <template>
@@ -15,6 +16,8 @@
 
   <Lecture class = "lecture"/>
 
+  <Session class = "session"/>
+
   <Ticker>
     Дело помощи утопающим — дело рук самих утопающих!
     Шахматы двигают вперед не только культуру, но и экономику!
@@ -25,5 +28,8 @@
 <style scoped>
   .lecture {
     margin-top: 80px;
+  }
+  .session {
+    margin-top: 64px;
   }
 </style>

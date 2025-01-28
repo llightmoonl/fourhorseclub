@@ -21,7 +21,7 @@
   border-radius: 66px;
   cursor: pointer;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.6rem;
   line-height: 1.3;
   &:hover {
