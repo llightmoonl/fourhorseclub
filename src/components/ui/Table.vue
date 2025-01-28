@@ -38,11 +38,17 @@ defineProps<{
       }
     }
 
+    &__row {
+      border-bottom: 2px solid $table-color;
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+
     &__title,
     &__description {
       padding-top: 16px;
       padding-bottom: 16px;
-      border-bottom: 2px solid $table-color;
     }
   }
 </style>

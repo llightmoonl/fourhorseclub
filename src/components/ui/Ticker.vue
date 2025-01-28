@@ -14,7 +14,7 @@
     overflow: hidden;
     text-wrap: nowrap;
     font-family: "Merriweather", sans-serif;
-    font-size: 22px;
+    font-size: 2.2rem;
     background-color: $red-color;
     color: $white-color;
     text-transform: uppercase;

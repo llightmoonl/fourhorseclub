@@ -1,6 +1,8 @@
 <script setup lang="ts">
+
 import Container from "./Container.vue";
 import Table from "../ui/Table.vue";
+import {RouterLink} from "vue-router"
 
 const tableItems = [
   {
@@ -42,6 +44,7 @@ const tableItems = [
             гроссмейстера О.Бендера
           </h2>
           <Table class = "session__table" :items = "tableItems"/>
+          <RouterLink class = "session__link" to = "/">По всем вопросам обращаться в администрацию к К.Михельсону</RouterLink>
         </article>
       </div>
     </Container>
@@ -73,8 +76,14 @@ const tableItems = [
     }
   }
 
-  &__table{
+  &__table {
     margin-top: 60px;
+    margin-bottom: 48px;
+  }
+
+  &__link {
+    font-size: 2rem;
+    color: $link-color;
   }
 }
 </style>
