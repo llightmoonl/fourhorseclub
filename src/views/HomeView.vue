@@ -4,9 +4,9 @@
   import Ticker from "../components/ui/Ticker.vue";
   import Session from "../components/shared/Session.vue";
   import Stages from "../components/shared/Stages.vue";
-  import Participants from "../components/shared/Participants.vue";
+  import Players from "../components/shared/Players.vue";
 
-  const participants = [
+  const players = [
     {
       id: 1,
       fullName: "Хозе-Рауль Капабланка",
@@ -55,7 +55,7 @@
 
   <Stages class = "stages"/>
 
-  <Participants class = "participants" :cards = "participants" />
+  <Players class = "players" :dataPlayers = "players" />
 
   <Ticker>
     Дело помощи утопающим — дело рук самих утопающих!
@@ -74,6 +74,10 @@
   }
 
   .stages {
+    margin-top: 200px;
+  }
+
+  .players {
     margin-top: 200px;
   }
 </style>
