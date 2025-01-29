@@ -23,9 +23,16 @@ h3,
 h4,
 h5,
 h6,
-p{
+p
+{
   margin: 0;
   font-family: 'Merriweather', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {

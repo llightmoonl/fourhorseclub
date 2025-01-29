@@ -24,14 +24,17 @@
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 1.3;
+
   &:hover {
     background-color: $button-yellow;
     color: $button-black;
     border-color: $button-yellow;
   }
+
   &__secondary {
     background-color: transparent;
     color: $button-black;
+
     &:hover {
       background-color: $button-black;
       color: #FFF;

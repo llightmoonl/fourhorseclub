@@ -9,9 +9,9 @@
 </template>
 
 <style scoped>
-  .container {
-    max-width: 1366px;
-    margin: 0 auto;
-    padding: 0 72px;
-  }
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
 </style>

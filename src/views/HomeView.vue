@@ -3,6 +3,41 @@
   import Lecture from "../components/shared/Lecture.vue";
   import Ticker from "../components/ui/Ticker.vue";
   import Session from "../components/shared/Session.vue";
+  import Stages from "../components/shared/Stages.vue";
+  import Participants from "../components/shared/Participants.vue";
+
+  const participants = [
+    {
+      id: 1,
+      fullName: "Хозе-Рауль Капабланка",
+      rank: "Чемпион мира по шахматам"
+    },
+    {
+      id: 2,
+      fullName: "Эммануил Ласкер",
+      rank: "Чемпион мира по шахматам"
+    },
+    {
+      id: 3,
+      fullName: "Александр Алехин",
+      rank: "Чемпион мира по шахматам"
+    },
+    {
+      id: 4,
+      fullName: "Арон Нимцович",
+      rank: "Чемпион мира по шахматам"
+    },
+    {
+      id: 5,
+      fullName: "Рихард Рети",
+      rank: "Чемпион мира по шахматам"
+    },
+    {
+      id: 6,
+      fullName: "Остап Бендер",
+      rank: "Гроссмейстер"
+    },
+  ]
 </script>
 
 <template>
@@ -18,6 +53,10 @@
 
   <Session class = "session"/>
 
+  <Stages class = "stages"/>
+
+  <Participants class = "participants" :cards = "participants" />
+
   <Ticker>
     Дело помощи утопающим — дело рук самих утопающих!
     Шахматы двигают вперед не только культуру, но и экономику!
@@ -29,7 +68,12 @@
   .lecture {
     margin-top: 80px;
   }
+
   .session {
     margin-top: 64px;
+  }
+
+  .stages {
+    margin-top: 200px;
   }
 </style>
