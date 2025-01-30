@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import 'swiper/scss';
-import 'swiper/scss/pagination';
 
 import {Swiper, SwiperSlide} from 'swiper/vue';
-import {Pagination} from 'swiper/modules';
+import {Pagination, Navigation} from 'swiper/modules';
 
 import PlayerCard from '../shared/PlayerItem.vue';
 
@@ -11,9 +10,10 @@ defineProps<{
   slides: Array<object>;
   slidesPerView: number;
   pagination: object;
+  navigation: object | boolean;
 }>();
 
-const modules = [Pagination];
+const modules = [Pagination, Navigation];
 </script>
 
 <template>
@@ -21,6 +21,7 @@ const modules = [Pagination];
     :modules="modules"
     :slides-per-view = "slidesPerView"
     :pagination = "pagination"
+    :navigation = "navigation"
   >
     <swiper-slide
       v-for = "(slide, index) in slides"

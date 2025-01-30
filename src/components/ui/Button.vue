@@ -6,6 +6,10 @@ const props = defineProps<{
   size?: string
 }>();
 
+const emit = defineEmits<{
+  click: []
+}>();
+
 const classesButtons = reactive({
   'button__secondary': props.variant === 'secondary',
   'button__link': props.variant === 'link',
@@ -15,6 +19,7 @@ const classesButtons = reactive({
 
 <template>
   <button
+    @click="$emit('click')"
     class="button"
     :class="classesButtons">
     <slot>Отправить</slot>
