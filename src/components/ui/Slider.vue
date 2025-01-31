@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import 'swiper/scss';
 
-import {Swiper, SwiperSlide} from 'swiper/vue';
-import {Pagination, Navigation} from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Navigation } from 'swiper/modules';
 
-import PlayerCard from '../shared/PlayerItem.vue';
+import { PlayerItem } from '@components/shared';
 
 defineProps<{
   slides: Array<object>;
@@ -27,7 +27,7 @@ const modules = [Pagination, Navigation];
       v-for = "(slide, index) in slides"
       :key = "index"
     >
-      <PlayerCard :items = "slide"/>
+      <PlayerItem :items = "slide"/>
     </swiper-slide>
   </Swiper>
 </template>

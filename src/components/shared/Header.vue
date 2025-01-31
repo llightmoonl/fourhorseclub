@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Logo from './Logo.vue';
-import Container from './Container.vue';
+import {Logo} from "@components/shared";
+import {Container} from "@components/shared";
 </script>
 
 <template>

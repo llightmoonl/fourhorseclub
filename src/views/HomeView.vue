@@ -1,10 +1,12 @@
 <script setup lang="ts">
-  import Banner from "../components/shared/Banner.vue";
-  import Lecture from "../components/shared/Lecture.vue";
-  import Ticker from "../components/ui/Ticker.vue";
-  import Session from "../components/shared/Session.vue";
-  import Stages from "../components/shared/Stages.vue";
-  import Players from "../components/shared/Players.vue";
+  import {
+    Banner,
+    Lecture,
+    Session,
+    Stages,
+    Players
+  } from "@components/shared";
+  import { Ticker } from "@components/ui";
 
   const players = [
     {

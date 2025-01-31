@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {computed} from "vue";
-
-import Button from "../ui/Button.vue";
+import {Button} from "@components/ui";
 
 const props = defineProps<{
   items: object
@@ -13,10 +12,10 @@ const playerImage = computed(() => props.items.image || './player-skeleton.png')
 
 <template>
   <div class="player-item">
-    <img class = "player-item__image" :src="playerImage" :alt="items.fullName">
-    <h3 class = "player-item__title">{{items.fullName}}</h3>
-    <p class = "player-item__rank">{{items.rank}}</p>
-    <Button class = "player-item__button" variant = "link">Подробнее</Button>
+    <img class="player-item__image" :src="playerImage" :alt="items.fullName">
+    <h3 class="player-item__title">{{ items.fullName }}</h3>
+    <p class="player-item__rank">{{ items.rank }}</p>
+    <Button class="player-item__button" variant="link">Подробнее</Button>
   </div>
 </template>
 

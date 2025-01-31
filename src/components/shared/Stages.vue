@@ -1,8 +1,7 @@
 <script setup lang="ts">
 
-import Cards from "./Cards.vue";
-import Container from './Container.vue';
-import {RouterLink} from 'vue-router';
+import { Cards, Container } from '@components/shared';
+import { RouterLink } from 'vue-router';
 
 const cards = [
   {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-  import {RouterView} from 'vue-router';
-  import Header from './components/shared/Header.vue';
-  import Footer from './components/shared/Footer.vue';
+  import { RouterView } from 'vue-router';
+  import { Header, Footer } from '@components/shared';
 </script>
 
 <template>

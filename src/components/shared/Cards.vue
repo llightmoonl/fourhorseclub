@@ -1,11 +1,9 @@
 <script setup lang="ts">
-
-import CardItem from '../ui/CardItem.vue';
+import {CardItem} from "@components/ui";
 
 defineProps<{
   items: Array<object>;
 }>();
-
 </script>
 
 <template>

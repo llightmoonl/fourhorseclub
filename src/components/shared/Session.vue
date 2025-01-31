@@ -1,8 +1,10 @@
 <script setup lang="ts">
 
-import Container from "./Container.vue";
-import Table from "../ui/Table.vue";
-import {RouterLink} from "vue-router"
+import {RouterLink} from "vue-router";
+
+import { Table } from "@components/ui";
+import { Container } from "@components/shared";
+
 
 const tableItems = [
   {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import Container from './Container.vue';
-import Slider from '../ui/Slider.vue';
-import Button from '../ui/Button.vue';
+import {Button, Slider} from '@components/ui';
+import {Container} from '@components/shared';
 
 import {ChevronLeft, ChevronRight} from 'lucide-vue-next';
 
