@@ -3,7 +3,7 @@
 import {RouterLink} from "vue-router";
 
 import { Table } from "@components/ui";
-import { Container } from "@components/shared";
+import { Container, SessionImage } from "@components/shared";
 
 
 const tableItems = [
@@ -35,9 +35,8 @@ const tableItems = [
   <section class="session">
     <Container>
       <div class="session__content">
-        <figure class="session__image">
-          <img src="../../assets/lecture.png" alt="Лекция на тему 'Плодотворная дебютная идея'">
-        </figure>
+        <SessionImage class = "session__image"/>
+
         <article class="session__information">
           <h2 class="session__title">и сеанс
             <span class="session__title-red">
@@ -71,6 +70,8 @@ const tableItems = [
   &__content {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 44px;
   }
 
   &__image {
@@ -87,6 +88,12 @@ const tableItems = [
   &__link {
     font-size: 2rem;
     color: $link-color;
+  }
+
+  @media (min-width: 1100px) {
+    &__content {
+      flex-direction: row;
+    }
   }
 }
 </style>
