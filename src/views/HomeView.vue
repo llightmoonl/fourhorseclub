@@ -8,6 +8,21 @@
   } from "@components/shared";
   import { Ticker } from "@components/ui";
 
+  const tickersContents = [
+    {
+      id: 1,
+      text: "Дело помощи утопающим — дело рук самих утопающих!",
+    },
+    {
+      id: 2,
+      text: "Шахматы двигают вперед не только культуру, но и экономику!"
+    },
+    {
+      id: 3,
+      text: "Лед тронулся, господа присяжные заседатели!"
+    }
+
+  ]
   const players = [
     {
       id: 1,
@@ -45,11 +60,7 @@
 <template>
   <Banner />
 
-  <Ticker class = "ticker">
-    Дело помощи утопающим — дело рук самих утопающих!
-    Шахматы двигают вперед не только культуру, но и экономику!
-    Лед тронулся, господа присяжные заседатели!
-  </Ticker>
+  <Ticker class = "ticker" :items = "tickersContents" />
 
   <Lecture class = "lecture"/>
 
@@ -59,11 +70,7 @@
 
   <Players class = "players" :dataPlayers = "players" />
 
-  <Ticker class = "ticker">
-    Дело помощи утопающим — дело рук самих утопающих!
-    Шахматы двигают вперед не только культуру, но и экономику!
-    Лед тронулся, господа присяжные заседатели!
-  </Ticker>
+  <Ticker class = "ticker" :items = "tickersContents" />
 </template>
 
 <style scoped>
@@ -83,5 +90,4 @@
     margin-top: 200px;
     margin-bottom: 140px;
   }
-
 </style>

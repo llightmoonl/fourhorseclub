@@ -28,6 +28,8 @@ defineProps<{
       <Slider
         class="players__slider"
         :slides="dataPlayers"
+        :slides-per-group="2"
+        :slides-per-group-skip="1"
         :slides-per-view="3"
         :pagination="{
           el: '.players__pagination',
@@ -58,9 +60,9 @@ defineProps<{
   }
 
   &__slider {
-    margin-top: 60px;
     padding-top: 16px;
     padding-bottom: 16px;
+    margin: 60px auto 0;
   }
 
   &__navigation {
@@ -71,15 +73,10 @@ defineProps<{
 
   &__pagination {
     font-size: 1.6rem;
-    opacity: 0.6;
-
-    &-current {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 }
-
-.players__pagination-current {
-  opacity: 1;
+:global(.players__pagination-total) {
+  opacity: 0.6;
 }
 </style>

@@ -13,11 +13,17 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
+
+@media (min-width: 834px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
+    grid-auto-flow: dense;
+  }
+}
+
 .cards {
   display: grid;
-  list-style-type: none;
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-flow: dense;
+  list-style-type: none;
 }
 </style>

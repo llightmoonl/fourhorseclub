@@ -22,7 +22,6 @@ const playerImage = computed(() => props.items.image || './player-skeleton.png')
 <style scoped lang="scss">
 .player-item {
   text-align: center;
-
   &__image {
     max-width: 320px;
     width: 100%;
@@ -51,4 +50,5 @@ const playerImage = computed(() => props.items.image || './player-skeleton.png')
     margin-top: 20px;
   }
 }
+
 </style>

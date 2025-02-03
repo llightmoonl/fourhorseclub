@@ -22,6 +22,7 @@ export default defineConfig({
         api: 'modern',
         additionalData: `
           @use "@/styles/vars.scss" as *;
+          @use "@/styles/animation.scss" as *;
         `
       }
     }
