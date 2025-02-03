@@ -38,7 +38,7 @@
       background-repeat: no-repeat;
       bottom: 0;
       right: 0;
-      animation: 3s infinite reverse moveElement;
+      animation: 3s infinite moveElement;
       &-1 {
         top: -67px;
         left: -51px;
@@ -63,7 +63,7 @@
       z-index: 3;
       background-repeat: no-repeat;
       background-image: url('@/assets/people.png');
-      animation: 3s infinite reverse moveElement;
+      animation: 3s infinite moveElement;
     }
 
     &__money {
@@ -75,7 +75,7 @@
       right: 0;
       background-repeat: no-repeat;
       background-image: url('@/assets/money.png');
-      animation: 3s infinite reverse moveElement;
+      animation: 3s infinite moveElement;
     }
 
     &__hand {
@@ -87,7 +87,7 @@
       right: 0;
       background-repeat: no-repeat;
       background-image: url('@/assets/hand.png');
-      animation: 3s infinite reverse moveElement;
+      animation: 3s infinite moveElement;
     }
 
     &__horse {
@@ -99,7 +99,7 @@
       z-index: 3;
       background-repeat: no-repeat;
       background-image: url('@/assets/horse.png');
-      animation: 3s infinite reverse moveElement;
+      animation: 3s infinite moveElement;
     }
   }
 </style>

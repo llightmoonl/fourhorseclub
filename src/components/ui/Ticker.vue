@@ -1,11 +1,20 @@
 <script setup lang="ts">
+
+defineProps<{
+  items: string[];
+}>();
+
 </script>
 
 <template>
   <section class="ticker">
     <div class="ticker__content">
-      <p class="ticker__text">
-        <slot></slot>
+      <p
+        v-for = "item in items"
+        :key = "item.id"
+        class="ticker__text"
+      >
+        {{item.text}}
       </p>
     </div>
   </section>
@@ -21,5 +30,25 @@
   color: $white-color;
   text-transform: uppercase;
   padding: 16px 0;
+
+  &__content {
+    display: flex;
+    gap: 9px;
+    animation: moveTicker linear infinite 30s;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    &::before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $white-color;
+    }
+  }
 }
 </style>
