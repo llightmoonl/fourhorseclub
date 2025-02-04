@@ -10,3 +10,4 @@ export {default as Players} from './Players.vue';
 export {default as Session} from './Session.vue';
 export {default as Stages} from './Stages.vue';
 export {default as SessionImage} from './SessionImage.vue';
+export {default as SliderNavigation} from './SliderNavigation.vue';

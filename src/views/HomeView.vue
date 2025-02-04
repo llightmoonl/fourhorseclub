@@ -1,93 +1,93 @@
 <script setup lang="ts">
-  import {
-    Banner,
-    Lecture,
-    Session,
-    Stages,
-    Players
-  } from "@components/shared";
-  import { Ticker } from "@components/ui";
+import {
+  Banner,
+  Lecture,
+  Session,
+  Stages,
+  Players
+} from "@components/shared";
+import {Ticker} from "@components/ui";
 
-  const tickersContents = [
-    {
-      id: 1,
-      text: "Дело помощи утопающим — дело рук самих утопающих!",
-    },
-    {
-      id: 2,
-      text: "Шахматы двигают вперед не только культуру, но и экономику!"
-    },
-    {
-      id: 3,
-      text: "Лед тронулся, господа присяжные заседатели!"
-    }
+const tickersContents = [
+  {
+    id: 1,
+    text: "Дело помощи утопающим — дело рук самих утопающих!",
+  },
+  {
+    id: 2,
+    text: "Шахматы двигают вперед не только культуру, но и экономику!"
+  },
+  {
+    id: 3,
+    text: "Лед тронулся, господа присяжные заседатели!"
+  }
 
-  ]
-  const players = [
-    {
-      id: 1,
-      fullName: "Хозе-Рауль Капабланка",
-      rank: "Чемпион мира по шахматам"
-    },
-    {
-      id: 2,
-      fullName: "Эммануил Ласкер",
-      rank: "Чемпион мира по шахматам"
-    },
-    {
-      id: 3,
-      fullName: "Александр Алехин",
-      rank: "Чемпион мира по шахматам"
-    },
-    {
-      id: 4,
-      fullName: "Арон Нимцович",
-      rank: "Чемпион мира по шахматам"
-    },
-    {
-      id: 5,
-      fullName: "Рихард Рети",
-      rank: "Чемпион мира по шахматам"
-    },
-    {
-      id: 6,
-      fullName: "Остап Бендер",
-      rank: "Гроссмейстер"
-    },
-  ]
+]
+const players = [
+  {
+    id: 1,
+    fullName: "Хозе-Рауль Капабланка",
+    rank: "Чемпион мира по шахматам"
+  },
+  {
+    id: 2,
+    fullName: "Эммануил Ласкер",
+    rank: "Чемпион мира по шахматам"
+  },
+  {
+    id: 3,
+    fullName: "Александр Алехин",
+    rank: "Чемпион мира по шахматам"
+  },
+  {
+    id: 4,
+    fullName: "Арон Нимцович",
+    rank: "Чемпион мира по шахматам"
+  },
+  {
+    id: 5,
+    fullName: "Рихард Рети",
+    rank: "Чемпион мира по шахматам"
+  },
+  {
+    id: 6,
+    fullName: "Остап Бендер",
+    rank: "Гроссмейстер"
+  },
+]
 </script>
 
 <template>
-  <Banner />
+  <Banner/>
 
-  <Ticker class = "ticker" :items = "tickersContents" />
+  <Ticker class="ticker" :items="tickersContents"/>
 
-  <Lecture class = "lecture"/>
+  <Lecture class="lecture"/>
 
-  <Session class = "session"/>
+  <Session class="session"/>
 
-  <Stages class = "stages"/>
+  <Stages class="stages"/>
 
-  <Players class = "players" :dataPlayers = "players" />
+  <Players class="players" :dataPlayers="players"/>
 
-  <Ticker class = "ticker" :items = "tickersContents" />
+  <Ticker class="ticker" :items="tickersContents"/>
 </template>
 
 <style scoped>
-  .lecture {
-    margin-top: 80px;
-  }
+.lecture {
+  margin-top: 80px;
+}
 
-  .session {
-    margin-top: 64px;
-  }
+.session {
+  margin-top: 64px;
+}
 
-  .stages {
-    margin-top: 200px;
-  }
+.stages {
+  margin-top: 200px;
+}
 
-  .players {
-    margin-top: 200px;
-    margin-bottom: 140px;
-  }
+.players {
+  margin-top: 200px;
+  margin-bottom: 140px;
+}
 </style>

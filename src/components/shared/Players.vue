@@ -1,12 +1,34 @@
 <script setup lang="ts">
-import {Button, Slider} from '@components/ui';
-import {Container} from '@components/shared';
-
-import {ChevronLeft, ChevronRight} from 'lucide-vue-next';
+import {ref, computed, onMounted, onUnmounted} from 'vue';
+import {Slider} from '@components/ui';
+import {Container, SliderNavigation} from '@components/shared';
 
 defineProps<{
   dataPlayers: Array<object>,
 }>();
+
+const width = ref(document.documentElement.clientWidth);
+
+const editWidth = () => {
+  width.value = document.documentElement.clientWidth;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', editWidth);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', editWidth);
+});
+
+const sliderMobile = computed(() => width.value < 1050);
+
+const navigationClasses = {
+  navigation: 'players__navigation',
+  navigationPrev: 'players__navigation--prev',
+  navigationNext: 'players__navigation--next',
+  pagination: 'players__pagination'
+}
 </script>
 
 <template>
@@ -14,23 +36,12 @@ defineProps<{
     <Container>
       <header class="players__header">
         <h2 class="players__title">Участники турнира</h2>
-        <div class="players__navigation">
-          <Button size="icon" class="players__navigation--prev">
-            <ChevronLeft/>
-          </Button>
-          <div class="players__pagination">
-          </div>
-          <Button size="icon" class="players__navigation--next">
-            <ChevronRight/>
-          </Button>
-        </div>
+        <SliderNavigation v-if = "!sliderMobile" :classes="navigationClasses"/>
       </header>
       <Slider
         class="players__slider"
         :slides="dataPlayers"
-        :slides-per-group="2"
-        :slides-per-group-skip="1"
-        :slides-per-view="3"
+        :slides-per-view="1"
         :pagination="{
           el: '.players__pagination',
           currentClass: 'players__pagination-current',
@@ -41,7 +52,18 @@ defineProps<{
           prevEl: '.players__navigation--prev',
           nextEl: '.players__navigation--next'
         }"
+        :breakpoints = "{
+          1150: {
+            slidesPerView: 3
+          },
+          1050: {
+            slidesPerView: 2,
+            slidesPerGroupSkip: 1,
+            slidesPerGroup: 2
+          }
+        }"
       />
+      <SliderNavigation v-if = "sliderMobile" :classes="navigationClasses"/>
     </Container>
   </section>
 </template>
