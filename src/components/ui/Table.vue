@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 defineProps<{
   items: Array<object>,
 }>();

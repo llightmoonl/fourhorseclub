@@ -1,33 +1,44 @@
 <script setup lang="ts">
-import {ref, computed, onMounted, onUnmounted} from 'vue';
 import {Slider} from '@components/ui';
-import {Container, SliderNavigation} from '@components/shared';
+import {Container, SliderNavigation, PlayerItem} from '@components/shared';
+
+import {useSliderMobile} from '@composables/slider.ts'
 
 defineProps<{
-  dataPlayers: Array<object>,
+  dataPlayers: Array<Record<string, any>>,
 }>();
 
-const width = ref(document.documentElement.clientWidth);
-
-const editWidth = () => {
-  width.value = document.documentElement.clientWidth;
-};
-
-onMounted(() => {
-  window.addEventListener('resize', editWidth);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', editWidth);
-});
-
-const sliderMobile = computed(() => width.value < 1050);
+const {isSliderMobile} = useSliderMobile(1050);
 
 const navigationClasses = {
   navigation: 'players__navigation',
   navigationPrev: 'players__navigation--prev',
   navigationNext: 'players__navigation--next',
   pagination: 'players__pagination'
+}
+
+const sliderOptions = {
+  slidesPerView: 1,
+  pagination: {
+    el: '.players__pagination',
+    currentClass: 'players__pagination-current',
+    totalClass: 'players__pagination-total',
+    type: 'fraction'
+  },
+  navigation: {
+    prevEl: '.players__navigation--prev',
+    nextEl: '.players__navigation--next'
+  },
+  breakpoints: {
+    1150: {
+      slidesPerView: 3
+    },
+    1050: {
+      slidesPerView: 2,
+      slidesPerGroupSkip: 1,
+      slidesPerGroup: 2
+    }
+  }
 }
 </script>
 
@@ -36,34 +47,20 @@ const navigationClasses = {
     <Container>
       <header class="players__header">
         <h2 class="players__title">Участники турнира</h2>
-        <SliderNavigation v-if = "!sliderMobile" :classes="navigationClasses"/>
+        <SliderNavigation v-if="!isSliderMobile" :classes="navigationClasses"/>
       </header>
       <Slider
         class="players__slider"
         :slides="dataPlayers"
-        :slides-per-view="1"
-        :pagination="{
-          el: '.players__pagination',
-          currentClass: 'players__pagination-current',
-          totalClass: 'players__pagination-total',
-          type: 'fraction'
-        }"
-        :navigation="{
-          prevEl: '.players__navigation--prev',
-          nextEl: '.players__navigation--next'
-        }"
-        :breakpoints = "{
-          1150: {
-            slidesPerView: 3
-          },
-          1050: {
-            slidesPerView: 2,
-            slidesPerGroupSkip: 1,
-            slidesPerGroup: 2
-          }
-        }"
-      />
-      <SliderNavigation v-if = "sliderMobile" :classes="navigationClasses"/>
+        :sliderOptions="sliderOptions"
+      >
+        <template #slide="{id, fullName, rank}">
+          <PlayerItem :items = "{id, fullName, rank}"/>
+        </template>
+      </Slider>
+      <footer v-if="isSliderMobile" class="players__footer">
+        <SliderNavigation :classes="navigationClasses"/>
+      </footer>
     </Container>
   </section>
 </template>
@@ -97,7 +94,14 @@ const navigationClasses = {
     font-size: 1.6rem;
     opacity: 1;
   }
+
+  &__footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
 }
+
 :global(.players__pagination-total) {
   opacity: 0.6;
 }

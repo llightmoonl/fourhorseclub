@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <li v-for="item in items" class="card-item">
     <span class="card-item__count">{{ item.id }}</span>
-    <div class="card-item__detail">{{ item.detailText }}</div>
+    <div class="card-item__detail">{{ item.text }}</div>
   </li>
 </template>
 

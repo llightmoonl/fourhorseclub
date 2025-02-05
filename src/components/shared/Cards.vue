@@ -2,7 +2,7 @@
 import {CardItem} from "@components/ui";
 
 defineProps<{
-  items: Array<object>;
+  items: Array<Record<string, string | number>>;
 }>();
 </script>
 
