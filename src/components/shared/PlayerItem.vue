@@ -11,7 +11,7 @@ const playerImage = computed(() => props.items.image || './player-skeleton.png')
 
 <template>
   <div class="player-item">
-    <img class="player-item__image" :src="playerImage" :alt="items.fullName">
+    <img class="player-item__image" :src="playerImage" :alt="items.fullName" loading="lazy">
     <h3 class="player-item__title">{{ items.fullName }}</h3>
     <p class="player-item__rank">{{ items.rank }}</p>
     <Button class="player-item__button" variant="link">Подробнее</Button>

@@ -27,6 +27,7 @@ const sliderOptions = {
     prevEl: '.stages__navigation--prev',
     nextEl: '.stages__navigation--next'
   },
+  lazy: true,
 }
 
 const navigationClasses = {

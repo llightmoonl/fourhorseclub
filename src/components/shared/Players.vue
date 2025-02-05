@@ -38,7 +38,8 @@ const sliderOptions = {
       slidesPerGroupSkip: 1,
       slidesPerGroup: 2
     }
-  }
+  },
+  lazy: true
 }
 </script>
 
