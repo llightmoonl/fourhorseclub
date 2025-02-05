@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {RouterLink} from 'vue-router';
 
-import {Slider} from '@components/ui';
-import {Cards, Container} from '@components/shared';
+import {Slider, CardItem} from '@components/ui';
+import {Cards, Container, SliderNavigation} from '@components/shared';
 import {useSliderMobile} from '@composables/slider.ts';
 
 type CardsType = {
@@ -16,26 +16,35 @@ defineProps<{
 
 const {isSliderMobile} = useSliderMobile(835);
 const sliderOptions = {
-  slidesPerView: 1,
+  slidesPerView: 2,
   pagination: {
-    el: '.players__pagination',
-    currentClass: 'players__pagination-current',
-    totalClass: 'players__pagination-total',
-    type: 'bullet'
+    el: '.stages__pagination',
+    type: 'bullets',
+    bulletClass: 'stages__bullet',
+    bulletActiveClass: 'stages__bullet_active',
   },
   navigation: {
-    prevEl: '.players__navigation--prev',
-    nextEl: '.players__navigation--next'
+    prevEl: '.stages__navigation--prev',
+    nextEl: '.stages__navigation--next'
   },
+}
+
+const navigationClasses = {
+  navigation: 'stages__navigation',
+  navigationPrev: 'stages__navigation--prev',
+  navigationNext: 'stages__navigation--next',
+  pagination: 'stages__pagination'
 }
 </script>
 
 <template>
   <section class="stages">
     <Container>
-      <h2 class="stages__title">Этапы преображения Васюков
-        <RouterLink class="stages__link" to="/">Будущие источники обогащения васюкинцев</RouterLink>
-      </h2>
+      <header class="stages__header">
+        <h2 class="stages__title">Этапы преображения Васюков
+          <RouterLink class="stages__link" to="/">Будущие источники обогащения васюкинцев</RouterLink>
+        </h2>
+      </header>
       <Cards
         :items="cards"
         class="stages__cards"
@@ -43,14 +52,19 @@ const sliderOptions = {
       />
       <div class="stages__slider" v-else>
         <Slider
+          class="stages__slider"
           :slides="cards"
           :sliderOptions="sliderOptions"
         >
-          <template #slide=>
-
+          <template #slide="{ id, text }">
+            <CardItem :item="{id, text}"/>
           </template>
         </Slider>
+        <div class="stages__footer">
+          <SliderNavigation :classes="navigationClasses"/>
+        </div>
       </div>
+
     </Container>
   </section>
 </template>
@@ -62,6 +76,8 @@ const sliderOptions = {
     text-transform: uppercase;
     max-width: 810px;
   }
+
+
 
   &__link {
     display: inline-block;
@@ -78,8 +94,32 @@ const sliderOptions = {
     line-height: 1.2;
   }
 
-  &__cards {
+  &__cards,
+  &__slider {
     margin-top: 54px;
   }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+}
+
+:global(.stages__pagination) {
+  display: flex;
+  gap: 8px;
+}
+
+:global(.stages__bullet) {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: $bullet-non-active;
+  border-radius: 50%;
+}
+
+:global(.stages__bullet_active) {
+  background-color: $primary-color;
 }
 </style>

@@ -8,7 +8,11 @@ defineProps<{
 
 <template>
   <ul class = "cards">
-    <CardItem :items = "items"/>
+    <CardItem
+      v-for = "(item, key) in items"
+      :item = "item"
+      :key = "key"
+    />
   </ul>
 </template>
 
