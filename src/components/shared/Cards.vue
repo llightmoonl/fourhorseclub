@@ -2,13 +2,17 @@
 import {CardItem} from "@components/ui";
 
 defineProps<{
-  items: Array<object>;
+  items: Array<Record<string, string | number>>;
 }>();
 </script>
 
 <template>
   <ul class = "cards">
-    <CardItem :items = "items"/>
+    <CardItem
+      v-for = "(item, key) in items"
+      :item = "item"
+      :key = "key"
+    />
   </ul>
 </template>
 

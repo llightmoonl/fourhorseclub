@@ -7,7 +7,6 @@ const props = defineProps<{
 }>();
 
 const playerImage = computed(() => props.items.image || './player-skeleton.png');
-
 </script>
 
 <template>
@@ -22,6 +21,7 @@ const playerImage = computed(() => props.items.image || './player-skeleton.png')
 <style scoped lang="scss">
 .player-item {
   text-align: center;
+
   &__image {
     max-width: 320px;
     width: 100%;

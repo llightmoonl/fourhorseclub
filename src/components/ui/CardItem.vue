@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
 defineProps<{
-  items: Array<object>;
+  item: Array<Record<string, any>>;
 }>();
 
 </script>
 
 <template>
-  <li v-for="item in items" class="card-item">
+  <li class="card-item">
     <span class="card-item__count">{{ item.id }}</span>
-    <div class="card-item__detail">{{ item.detailText }}</div>
+    <div class="card-item__detail">{{ item.text }}</div>
   </li>
 </template>
 
