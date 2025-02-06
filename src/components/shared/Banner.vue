@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {Button} from "@components/ui";
-import {Container} from "@components/shared";
+import {Container, BannerImage} from "@components/shared";
 </script>
 
 <template>
@@ -19,6 +19,7 @@ import {Container} from "@components/shared";
             <Button class="banner__button" variant="secondary">Подробнее о турнире</Button>
           </div>
         </article>
+        <BannerImage/>
       </div>
     </Container>
   </section>
@@ -29,14 +30,14 @@ import {Container} from "@components/shared";
   background-color: $brown-color;
 
   &__content {
-    height: 75vh;
+    min-height: 700px;
     display: flex;
-    align-items: center;
     position: relative;
   }
 
   &__information {
     max-width: 542px;
+    align-self: center;
   }
 
   &__title {
@@ -74,11 +75,6 @@ import {Container} from "@components/shared";
     display: grid;
     gap: 16px;
     grid-template-columns: 1fr 1fr;
-  }
-
-  &__image {
-    position: absolute;
-    top: 0;
   }
 }
 </style>

@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <RouterLink :to="link" class="logo">
-    <img alt="Клуб четырех коней" class="logo__image" src="../../assets/logo.svg"/>
+    <img alt="Клуб четырех коней" class="logo__image" src="@/assets/images/logo.svg"/>
     <span class="logo__text">Клуб<br> четырех коней</span>
   </RouterLink>
 </template>

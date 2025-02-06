@@ -22,6 +22,8 @@ defineProps<{
 
 <style scoped lang="scss">
 .ticker {
+  position: relative;
+  z-index: 9999;
   overflow: hidden;
   text-wrap: nowrap;
   font-family: "Merriweather", sans-serif;

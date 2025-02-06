@@ -15,8 +15,9 @@ defineProps<{
 }>()
 
 const {isSliderMobile} = useSliderMobile(835);
+
 const sliderOptions = {
-  slidesPerView: 2,
+  slidesPerView: 1,
   pagination: {
     el: '.stages__pagination',
     type: 'bullets',
