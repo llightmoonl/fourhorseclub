@@ -10,7 +10,7 @@ defineProps<{
   <section class="ticker">
     <div class="ticker__content">
       <p
-        v-for = "item in items"
+        v-for = "item in items.concat(items)"
         :key = "item.id"
         class="ticker__text"
       >

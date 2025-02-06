@@ -53,39 +53,39 @@
     }
 
     &-sun {
-      max-width: 770px;
-      top: -115px;
+      max-width: 40vw;
       aspect-ratio: 1 / 1;
       animation: rotateElement 120s linear infinite both;
     }
 
     &-city {
-      max-width: 1627px;
+      max-width: 100vw;
       bottom: 0;
       left: -750px;
       z-index: 2;
     }
 
     &-king {
-      max-width: 125px;
+      max-width: 10vw;
       bottom: 165px;
       left: 105px;
     }
 
     &-queen {
-      max-width: 140px;
+      max-width: 10vw;
       bottom: 280px;
       left: 443px;
     }
 
     &-horse {
+      max-width: 15vw;
       bottom: -55px;
       left: 210px;
       z-index: 2;
     }
 
     &-chess {
-      max-width: 130px;
+      max-width: 10vw;
       bottom: 15px;
       z-index: 2;
       left: 615px;
