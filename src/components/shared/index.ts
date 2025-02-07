@@ -1,4 +1,5 @@
 export {default as Banner} from './Banner.vue';
+export {default as BannerImage} from './BannerImage.vue';
 export {default as Footer} from './Footer.vue';
 export {default as Header} from './Header.vue';
 export {default as Cards} from './Cards.vue';

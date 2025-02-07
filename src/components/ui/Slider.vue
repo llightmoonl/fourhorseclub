@@ -20,8 +20,8 @@ const modules = [Pagination, Navigation];
     v-bind = "sliderOptions"
     :modules="modules"
   >
-    <swiper-slide v-for="(slide, index) in slides" :key="index">
-      <slot name="slide" v-bind="slide"></slot>
+    <swiper-slide v-for="(slide, index) in slides" >
+      <slot name="slide" v-bind="slide" :key="index"></slot>
     </swiper-slide>
   </Swiper>
 </template>

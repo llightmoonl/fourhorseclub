@@ -17,7 +17,7 @@ defineProps<{
 .card-item {
   display: flex;
   font-family: "Golos Text", sans-serif;
-  background-image: url('../../assets/paper.png');
+  background-image: url('@/assets/images/paper.png');
   background-repeat: no-repeat;
   background-size: cover;
   padding: 20px;

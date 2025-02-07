@@ -1,42 +1,24 @@
 <script setup lang="ts">
-
+import {ref, onMounted, type Ref} from "vue";
 import {RouterLink} from "vue-router";
 
-import { Table } from "@components/ui";
-import { Container, SessionImage } from "@components/shared";
+import {Table} from "@components/ui";
+import {Container, SessionImage} from "@components/shared";
 
+import {useFetch} from "@composables/fetch";
 
-const tableItems = [
-  {
-    title: "Место проведения",
-    description: "Клуб \"Картонажник\""
-  },
-  {
-    title: "Дата и время мероприятия",
-    description: "22 июня 1927 г. в 18:00"
-  },
-  {
-    title: "Стоимость входных билетов",
-    description: "20 коп."
-  },
-  {
-    title: "Плата за игру",
-    description: "50 коп."
-  },
-  {
-    title: "Взнос на телеграммы",
-    overline: "100 руб.",
-    description: "21 руб. 16 коп."
-  },
-]
+const tableItems: Ref<Array<Record<string, any>>> = ref([]);
+
+onMounted(async () => {
+  tableItems.value = (await useFetch('/tableItems')).data;
+});
 </script>
 
 <template>
   <section class="session">
     <Container>
       <div class="session__content">
-        <SessionImage class = "session__image"/>
-
+        <SessionImage class="session__image"/>
         <article class="session__information">
           <h2 class="session__title">и сеанс
             <span class="session__title-red">

@@ -1,22 +1,24 @@
 <script setup lang="ts">
+import {onMounted, ref, type Ref} from "vue";
 import {RouterLink} from 'vue-router';
 
 import {Slider, CardItem} from '@components/ui';
 import {Cards, Container, SliderNavigation} from '@components/shared';
-import {useSliderMobile} from '@composables/slider.ts';
 
-type CardsType = {
-  id: number,
-  text: string,
-}
+import {useFetch} from "@composables/fetch.ts";
+import {useWidth} from "@composables/width.ts";
 
-defineProps<{
-  cards: Array<CardsType>
-}>()
+const mobileWidth = 835;
+const {isWidthMobile} = useWidth();
 
-const {isSliderMobile} = useSliderMobile(835);
+const cardsData: Ref<Array<Record<string, any>>> = ref([]);
+
+onMounted(async () => {
+  cardsData.value = (await useFetch('/cards')).data;
+})
+
 const sliderOptions = {
-  slidesPerView: 2,
+  slidesPerView: 1,
   pagination: {
     el: '.stages__pagination',
     type: 'bullets',
@@ -27,6 +29,7 @@ const sliderOptions = {
     prevEl: '.stages__navigation--prev',
     nextEl: '.stages__navigation--next'
   },
+  lazy: true,
 }
 
 const navigationClasses = {
@@ -46,9 +49,9 @@ const navigationClasses = {
         </h2>
       </header>
       <Cards
-        :items="cards"
+        :items="cardsData"
         class="stages__cards"
-        v-if="!isSliderMobile"
+        v-if="!isWidthMobile(mobileWidth)"
       />
       <div class="stages__slider" v-else>
         <Slider
@@ -64,7 +67,6 @@ const navigationClasses = {
           <SliderNavigation :classes="navigationClasses"/>
         </div>
       </div>
-
     </Container>
   </section>
 </template>
@@ -76,8 +78,6 @@ const navigationClasses = {
     text-transform: uppercase;
     max-width: 810px;
   }
-
-
 
   &__link {
     display: inline-block;

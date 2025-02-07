@@ -11,7 +11,7 @@ import {Container} from "@components/shared";
           <span class="lecture__title-red">«Плодотворная дебютная идея»</span>
         </h2>
         <figure class="lecture__image">
-          <img src="../../assets/lecture.png" alt="Лекция на тему 'Плодотворная дебютная идея'">
+          <img src="@/assets/images/lecture.png" alt="Лекция на тему 'Плодотворная дебютная идея'">
         </figure>
       </div>
     </Container>

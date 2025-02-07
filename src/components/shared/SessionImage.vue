@@ -24,7 +24,7 @@
     &__background {
       position: absolute;
       inset: 0;
-      background-image: url('@/assets/paper.png');
+      background-image: url('@/assets/images/paper.png');
       max-width: 440px;
       width: 100%;
       height: 440px;
@@ -42,12 +42,12 @@
       &-1 {
         top: -67px;
         left: -51px;
-        background-image: url('@/assets/effect1.png');
+        background-image: url('@/assets/images/effect1.png');
         z-index: 2;
       }
 
       &-2 {
-        background-image: url('@/assets/effect2.png');
+        background-image: url('@/assets/images/effect2.png');
         top: 257px;
         left: -37px;
         z-index: 3;
@@ -62,8 +62,7 @@
       right: 0;
       z-index: 3;
       background-repeat: no-repeat;
-      background-image: url('@/assets/people.png');
-      animation: 3s infinite moveElement;
+      background-image: url('@/assets/images/people.png');
     }
 
     &__money {
@@ -74,8 +73,7 @@
       bottom: 0;
       right: 0;
       background-repeat: no-repeat;
-      background-image: url('@/assets/money.png');
-      animation: 3s infinite moveElement;
+      background-image: url('@/assets/images/money.png');
     }
 
     &__hand {
@@ -86,7 +84,7 @@
       bottom: 0;
       right: 0;
       background-repeat: no-repeat;
-      background-image: url('@/assets/hand.png');
+      background-image: url('@/assets/images/hand.png');
       animation: 3s infinite moveElement;
     }
 
@@ -98,7 +96,7 @@
       right: 0;
       z-index: 3;
       background-repeat: no-repeat;
-      background-image: url('@/assets/horse.png');
+      background-image: url('@/assets/images/horse.png');
       animation: 3s infinite moveElement;
     }
   }
