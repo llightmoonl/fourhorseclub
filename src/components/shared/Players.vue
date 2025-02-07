@@ -1,14 +1,20 @@
 <script setup lang="ts">
+import {ref, onMounted, type Ref} from "vue";
+
 import {Slider} from '@components/ui';
 import {Container, SliderNavigation, PlayerItem} from '@components/shared';
 
-import {useSliderMobile} from '@composables/slider.ts'
+import {useWidth} from '@composables/width';
+import {useFetch} from '@composables/fetch';
 
-defineProps<{
-  dataPlayers: Array<Record<string, any>>,
-}>();
+const mobileWidth = 1060;
+const {isWidthMobile} = useWidth();
 
-const {isSliderMobile} = useSliderMobile(1050);
+const players: Ref<Array<Record<string, any>>> = ref([]);
+
+onMounted(async () => {
+  players.value = (await useFetch('/players')).data;
+})
 
 const navigationClasses = {
   navigation: 'players__navigation',
@@ -48,18 +54,18 @@ const sliderOptions = {
     <Container>
       <header class="players__header">
         <h2 class="players__title">Участники турнира</h2>
-        <SliderNavigation v-if="!isSliderMobile" :classes="navigationClasses"/>
+        <SliderNavigation v-if="!isWidthMobile(mobileWidth)" :classes="navigationClasses"/>
       </header>
       <Slider
         class="players__slider"
-        :slides="dataPlayers"
+        :slides="players"
         :sliderOptions="sliderOptions"
       >
         <template #slide="{id, fullName, rank}">
-          <PlayerItem :items = "{id, fullName, rank}"/>
+          <PlayerItem :items="{id, fullName, rank}"/>
         </template>
       </Slider>
-      <footer v-if="isSliderMobile" class="players__footer">
+      <footer v-if="isWidthMobile(mobileWidth)" class="players__footer">
         <SliderNavigation :classes="navigationClasses"/>
       </footer>
     </Container>

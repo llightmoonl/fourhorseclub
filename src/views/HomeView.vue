@@ -11,14 +11,10 @@ import {
 } from "@components/shared";
 import {Ticker} from "@components/ui";
 
-const players = ref([]);
 const tickers = ref([]);
-const cards = ref([]);
 
 onMounted(async () => {
-  players.value = (await useFetch('/players')).data;
   tickers.value = (await useFetch('/tickers')).data;
-  cards.value = (await useFetch('/cards')).data;
 })
 </script>
 
@@ -31,9 +27,9 @@ onMounted(async () => {
 
   <Session class="session"/>
 
-  <Stages class="stages" :cards="cards" />
+  <Stages class="stages" />
 
-  <Players class="players" :dataPlayers="players"/>
+  <Players class="players"/>
 
   <Ticker class="ticker" :items="tickers"/>
 </template>
